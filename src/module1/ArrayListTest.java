@@ -109,6 +109,9 @@ public class ArrayListTest implements ListTest {
                 }
             }
         }
+
+
+
         endTime = System.currentTimeMillis();
 
         return (endTime - startTime) / 100;
