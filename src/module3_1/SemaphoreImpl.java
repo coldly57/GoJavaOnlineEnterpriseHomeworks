@@ -18,8 +18,8 @@ public class SemaphoreImpl implements Semaphore {
             if (counter > 0) {
                 counter--;
             } else {
-                lock.wait();
                 System.out.println(Thread.currentThread().getName() + " is waiting...");
+                lock.wait();
             }
         }
 
