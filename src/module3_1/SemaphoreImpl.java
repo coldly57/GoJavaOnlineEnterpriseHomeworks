@@ -19,6 +19,7 @@ public class SemaphoreImpl implements Semaphore {
                 counter--;
             } else {
                 System.out.println(Thread.currentThread().getName() + " is waiting...");
+                Thread.sleep(1000);
                 lock.wait();
             }
         }
@@ -30,8 +31,8 @@ public class SemaphoreImpl implements Semaphore {
 
         synchronized (lock) {
             while (counter < permits) {
-                lock.wait();
                 System.out.println("Special " + Thread.currentThread().getName() + " is waiting...");
+                lock.wait();
             }
             counter -= permits;
         }

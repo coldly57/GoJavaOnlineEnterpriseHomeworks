@@ -8,15 +8,13 @@ public class SemaphoreTest {
     private Semaphore semaphore;
 
     public static void main(String[] args) throws InterruptedException {
-        for (int i = 0; i < 10; i++) {
-            new SemaphoreTest().test();
-        }
+        new SemaphoreTest().test();
     }
 
-    public void test(){
-        semaphore = new SemaphoreImpl(3);
+    public void test() {
+        semaphore = new SemaphoreImpl(1);
 
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             new Thread(new Worker()).start();
         }
         new Thread(new Runnable() {
@@ -39,7 +37,7 @@ public class SemaphoreTest {
         }).start();
     }
 
-    private class Worker implements Runnable{
+    private class Worker implements Runnable {
 
         @Override
         public void run() {
@@ -50,8 +48,7 @@ public class SemaphoreTest {
                 System.out.println(Thread.currentThread().getName() + " started to work");
                 semaphore.release();
                 System.out.println(Thread.currentThread().getName() + " released");
-            }
-            catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
