@@ -9,15 +9,6 @@ import java.util.concurrent.*;
  */
 public class SquareSumImpl implements SquareSum {
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-
-        int[] values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-
-        long sum = new SquareSumImpl().getSquareSum(values, 13);
-
-        System.out.println("Total sum: " + sum);
-    }
-
     @Override
     public long getSquareSum(int[] values, int numberOfThreads) throws ExecutionException, InterruptedException {
 
